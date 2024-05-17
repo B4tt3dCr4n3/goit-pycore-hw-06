@@ -39,6 +39,14 @@ class Record:
         else: # If the phone number is not valid.
             print("Phone number should contain 10 digits.") # Print an error message.
 
+    def remove_phone(self, phone):
+        '''
+        Remove a phone from the record.
+        '''
+        for p in self.phones: # Iterate over the list of phones.
+            if p.value == phone: # If the phone number is found.
+                self.phones.remove(p) # Remove the phone number.
+
     def edit_phone(self, old_phone, new_phone):
         '''
         Edit a phone in the record.
@@ -100,6 +108,9 @@ book = AddressBook() # Create an instance of the AddressBook class.
 john_record = Record("John") # Create a record for John.
 john_record.add_phone("1234567890") # Add a phone to the record.
 john_record.add_phone("5555555555") # Add another phone to the record.
+john_record.add_phone("9999999999") # Add another phone to the record.
+john_record.add_phone("1112223333") # Add another phone to the record.
+john_record.remove_phone("9999999999") # Remove a phone from the record.
 
 book.add_record(john_record) # Add the record to the address book.
 
